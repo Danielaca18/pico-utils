@@ -11,7 +11,7 @@ git clone https://github.com/Danielaca18/pico-bootsel-btn.git
 cd repo-template
 ```
 
-### 3. Include the Library
+### 2. Include the Library
 Include the library in your project by adding the following line to your project cmake:
 ```add_subdirectory(path-to-pico-bootsel-btn)```
 
