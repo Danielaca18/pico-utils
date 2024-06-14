@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 
 # Set project and target name
-set(PROJECT_NAME "Template")
-set(TARGET_NAME "Template")
+set(PROJECT_NAME "bootsel_btn")
+set(TARGET_NAME "bootsel_btn")
+set(LIBRARY_NAME "bootsel_btnlib")
 
 # Include project configs
 include(${CMAKE_SOURCE_DIR}/cmake/import_config.cmake)
@@ -20,6 +21,11 @@ pico_sdk_init()
 # Add directories
 add_subdirectory(src)
 add_subdirectory(inc)
+
+# Setup library
+add_library(${LIBRARY_NAME} ${LIB_SRC} ${LIB_INC})
+target_link_libraries(${LIBRARY_NAME} pico_stdlib)
+target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 # Setup executable
 add_executable(${TARGET_NAME} ${SRC} ${INC})
