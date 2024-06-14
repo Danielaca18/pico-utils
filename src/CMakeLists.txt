@@ -1,5 +1,9 @@
-set(SRC
-    ${CMAKE_CURRENT_SOURCE_DIR}/main.c
+set(LIB_SRC
+    ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.c
     PARENT_SCOPE
 )
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set(SRC
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.c
+    PARENT_SCOPE
+)

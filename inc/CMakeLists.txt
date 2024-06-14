@@ -1,5 +1,8 @@
-set(INC
-    
+set(LIB_INC
+    ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.h
     PARENT_SCOPE
 )
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set(INC
+    ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.h
+    PARENT_SCOPE
+)
