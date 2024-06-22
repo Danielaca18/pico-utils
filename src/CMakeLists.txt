@@ -1,9 +1,11 @@
 set(LIB_SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/led.c
     PARENT_SCOPE
 )
 set(SRC
     ${CMAKE_CURRENT_SOURCE_DIR}/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/bootsel.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/led.c
     PARENT_SCOPE
 )
