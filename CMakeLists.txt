@@ -24,12 +24,12 @@ add_subdirectory(inc)
 
 # Setup library
 add_library(${LIBRARY_NAME} ${LIB_SRC} ${LIB_INC})
-target_link_libraries(${LIBRARY_NAME} pico_stdlib)
+target_link_libraries(${LIBRARY_NAME} pico_stdlib pico_cyw43_arch_none)
 target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
 # Setup executable
 add_executable(${TARGET_NAME} ${SRC} ${INC})
-target_link_libraries(${TARGET_NAME} pico_stdlib pico_unique_id)
+target_link_libraries(${TARGET_NAME} pico_stdlib pico_cyw43_arch_none pico_unique_id)
 
 # Add include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)

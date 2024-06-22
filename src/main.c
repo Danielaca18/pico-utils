@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "pico/stdio.h"
 #include "bootsel.h"
+#include "led.h"
 
 int main() {
     stdio_init_all();
@@ -11,6 +12,7 @@ int main() {
     while (true) {
         if (button_state != get_bootsel_button()) {
             button_state = !button_state;
+            set_led(button_state);
             printf("Button is %s\n", button_state?"on":"off");
         }
     }
