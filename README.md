@@ -1,6 +1,11 @@
-# Pico Bootsel Button
+# Pico Utils
 
-This library provides a function for reading the state of the builtin boot-select button on the Raspberry Pi Pico.
+This library provides a set of useful functions for interacting with the Raspberry Pi Pico W board.
+
+## ✨ Features
+- **get_bootsel_btn()**: Get the state of the bootsel button.
+- **set_led(bool state)**: Set the state of the onboard LED.
+- **cyw43_arch_init_once()**: Wraps cyw43_arch_init(), prevents initializing driver twice.
 
 ## 🛠️ Setup
 
