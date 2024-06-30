@@ -12,4 +12,5 @@ int cyw43_arch_init_once() {
 int set_led(bool state) {
     if (cyw43_arch_init_once()) return 1;
     cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, state);
+    return 0;
 }
