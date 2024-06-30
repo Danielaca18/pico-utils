@@ -6,7 +6,7 @@ set(TARGET_NAME "bootsel_btn")
 set(LIBRARY_NAME "bootsel_btnlib")
 
 # Include project configs
-include(${CMAKE_SOURCE_DIR}/cmake/import_config.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/import_config.cmake)
 
 # Include pico sdk and extras
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
