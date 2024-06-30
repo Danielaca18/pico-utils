@@ -22,22 +22,24 @@ pico_sdk_init()
 add_subdirectory(src)
 add_subdirectory(inc)
 
-# Setup library
-add_library(${LIBRARY_NAME} ${LIB_SRC} ${LIB_INC})
-target_link_libraries(${LIBRARY_NAME} pico_stdlib pico_cyw43_arch_none)
-target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/inc)
+if (NOT TARGET ${LIBRARY_NAME} AND NOT TARGET ${TARGET_NAME})
+    # Setup library
+    add_library(${LIBRARY_NAME} ${LIB_SRC} ${LIB_INC})
+    target_link_libraries(${LIBRARY_NAME} pico_stdlib pico_cyw43_arch_none)
+    target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-# Setup executable
-add_executable(${TARGET_NAME} ${SRC} ${INC})
-target_link_libraries(${TARGET_NAME} pico_stdlib pico_cyw43_arch_none pico_unique_id)
+    # Setup executable
+    add_executable(${TARGET_NAME} ${SRC} ${INC})
+    target_link_libraries(${TARGET_NAME} pico_stdlib pico_cyw43_arch_none pico_unique_id)
 
-# Add include directories
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
+    # Add include directories
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
+    include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-# Link stdio to usb serial
-pico_enable_stdio_usb(${TARGET_NAME} 1)
-pico_enable_stdio_uart(${TARGET_NAME} 1)
+    # Link stdio to usb serial
+    pico_enable_stdio_usb(${TARGET_NAME} 1)
+    pico_enable_stdio_uart(${TARGET_NAME} 1)
 
-# Generate uf2 file for flashing
-pico_add_extra_outputs(${TARGET_NAME})
+    # Generate uf2 file for flashing
+    pico_add_extra_outputs(${TARGET_NAME})
+endif()
