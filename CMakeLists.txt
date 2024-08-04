@@ -25,7 +25,7 @@ add_subdirectory(inc)
 if (NOT TARGET ${LIBRARY_NAME} AND NOT TARGET ${TARGET_NAME})
     # Setup library
     add_library(${LIBRARY_NAME} ${LIB_SRC} ${LIB_INC})
-    target_link_libraries(${LIBRARY_NAME} pico_stdlib pico_cyw43_arch_none)
+    target_link_libraries(${LIBRARY_NAME} PUBLIC pico_stdlib pico_cyw43_arch_none)
     target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
     # Setup executable
